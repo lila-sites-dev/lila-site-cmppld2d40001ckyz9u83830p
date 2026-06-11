@@ -1,0 +1,122 @@
+{
+  "version": 1,
+  "generatedAt": "2026-06-11T13:16:18.306Z",
+  "source": "color-picker",
+  "palette": {
+    "primary": {
+      "hex": "#976900",
+      "onHex": "#ffffff",
+      "contrast": 4.8
+    },
+    "secondary": {
+      "hex": "#4f3d17",
+      "onHex": "#ffffff",
+      "contrast": 10.4
+    },
+    "accent": {
+      "hex": "#31a800",
+      "onHex": "#000000",
+      "contrast": 6.7
+    },
+    "surface": {
+      "hex": "#fdfcfa",
+      "onHex": "#181610",
+      "contrast": 17.6
+    },
+    "surfaceAlt": {
+      "hex": "#f8f5ed",
+      "onHex": "#181610",
+      "contrast": 16.6
+    },
+    "text": {
+      "hex": "#181610"
+    },
+    "muted": {
+      "hex": "#766f60"
+    },
+    "border": {
+      "hex": "#efe9d9"
+    },
+    "scale": {
+      "primary50": "#eedfcc",
+      "primary100": "#dbc09b",
+      "primary200": "#c7a26c",
+      "primary300": "#b0853d",
+      "primary400": "#976900",
+      "primary500": "#7c5200",
+      "primary600": "#623c00",
+      "primary700": "#4b2700",
+      "primary800": "#391200",
+      "primary900": "#000000"
+    }
+  },
+  "typography": {
+    "display": {
+      "family": "Fraunces",
+      "weights": [
+        500,
+        700
+      ],
+      "googleFontHref": "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap"
+    },
+    "body": {
+      "family": "Inter",
+      "weights": [
+        400,
+        500,
+        600
+      ]
+    },
+    "scale": "standard",
+    "radius": "rounded"
+  },
+  "layout": {
+    "direction": "friendly",
+    "density": "comfortable",
+    "motion": "subtle"
+  },
+  "sections": {
+    "home": [
+      {
+        "type": "hero",
+        "variant": "split-image-right"
+      },
+      {
+        "type": "services-grid",
+        "variant": "icon-cards"
+      },
+      {
+        "type": "cta",
+        "variant": "centered-band"
+      }
+    ],
+    "default": [
+      {
+        "type": "hero",
+        "variant": "centered-stacked"
+      },
+      {
+        "type": "prose"
+      },
+      {
+        "type": "cta",
+        "variant": "centered-band"
+      }
+    ]
+  },
+  "imageCues": {
+    "hero": {
+      "query": "modern professional workspace",
+      "source": "auto"
+    },
+    "about": {
+      "query": "team portrait small business",
+      "source": "source-site"
+    },
+    "services": {
+      "query": "service detail close-up",
+      "source": "auto"
+    }
+  },
+  "rationale": "Direction \"friendly\" picked for generic business. Palette built from base #f0b638; primary contrast against white = 4.8. Typography: fraunces-inter — Fraunces (variable serif) over Inter — warm, considered, reads as artisanal but modern."
+}
