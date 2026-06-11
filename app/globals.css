@@ -1,0 +1,20 @@
+/* Minimal, swap-in brand tokens. The build agent may edit :root tokens to match
+   the client's brand kit (colors/fonts) — see CLAUDE.md. */
+:root {
+  --bg: #ffffff;
+  --ink: #14121c;
+  --soft: #5b5870;
+  --accent: #7c5cff;
+  --rule: #ece9f5;
+  --font: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font); line-height: 1.6; }
+.container { max-width: 760px; margin: 0 auto; padding: 48px 24px 96px; }
+h1 { font-size: 2rem; letter-spacing: -0.02em; }
+a { color: var(--accent); }
+.lead-form { margin-top: 40px; padding: 24px; border: 1px solid var(--rule); border-radius: 14px; display: grid; gap: 10px; }
+.lead-form input, .lead-form textarea { padding: 10px 12px; border: 1px solid var(--rule); border-radius: 8px; font: inherit; }
+.lead-form button { padding: 11px 16px; border: 0; border-radius: 8px; background: var(--accent); color: #fff; font-weight: 600; cursor: pointer; }
+.service-list { list-style: none; padding: 0; }
+.service-list li { padding: 12px 0; border-top: 1px solid var(--rule); }

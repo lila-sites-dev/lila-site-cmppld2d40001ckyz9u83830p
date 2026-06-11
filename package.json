@@ -1,0 +1,25 @@
+{
+  "name": "lila-site-template",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Lila-hosted client site template. Each client's lila-site-<id> repo is generated from this. Content lives in content/**, grounded brand data in brand/feed.json; the build agent only edits those.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "gray-matter": "^4.0.3",
+    "marked": "^14.1.4",
+    "next": "^15.1.6",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "typescript": "^5.7.0"
+  }
+}
