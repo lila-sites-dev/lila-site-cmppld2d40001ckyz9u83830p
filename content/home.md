@@ -1,40 +1,40 @@
 ---
 title: "dingg salon"
-description: "A friendly hair salon in the heart of Pune, where skilled stylists tailor every cut, colour, and style to suit you."
+description: "A friendly hair salon in the heart of Pune, where skilled stylists tailor every cut, colour, and treatment to suit you."
 sections:
   - type: hero
     variant: gradient-canvas
     eyebrow: "Hair salon in the heart of Pune"
     title: |
-      Great hair days,
-      styled for you in Pune
-    subtitle: "A friendly Pune hair salon where skilled stylists tailor every cut, colour, and style to you."
+      Hair care, tailored
+      to you in Pune
+    subtitle: "A friendly Pune salon where skilled stylists shape every cut, colour, and treatment around you."
     ctaText: "book your appointment now"
     ctaHref: "/contact"
   - type: services-grid
     variant: feature-cards
     heading: "What we do"
     items:
-      - title: "all salon & spa services pune"
-        body: "Browse the full menu of cuts, colour, and care our Pune stylists offer."
+      - title: "Cuts & styling"
+        body: "Cuts, blow-dries, and finishing shaped to your hair and how you like to wear it."
         href: "/services"
         icon: "01"
-      - title: "Your signature service in Pune"
-        body: "A closer look at one of the salon services our Pune stylists offer."
-        href: "/services/example"
+      - title: "Colour & highlights"
+        body: "Colour, highlights, and refreshes designed around your tone and the look you want."
+        href: "/services"
         icon: "02"
-      - title: "Cuts & styling"
-        body: "On-trend cuts shaped to your hair and the way you like to wear it."
+      - title: "Treatments & care"
+        body: "Nourishing treatments to help keep your hair healthy and shiny between visits."
         href: "/services"
         icon: "03"
-      - title: "Colour & care"
-        body: "Fresh colour and nourishing treatments to keep your hair healthy and bright."
+      - title: "all salon & spa services pune"
+        body: "Browse the full menu of cuts, colour, and care from our Pune stylists."
         href: "/services"
         icon: "04"
   - type: cta
     variant: centered-band
-    title: "Ready for your next great hair day?"
-    body: "Book a chair with our Pune stylists and tell us the look you are after. We will take it from there."
+    title: "Ready to book your next visit?"
+    body: "Tell our Pune stylists the look you are after and we will help you find a time that works."
     ctaText: "book your appointment now"
     ctaHref: "/contact"
 ---
