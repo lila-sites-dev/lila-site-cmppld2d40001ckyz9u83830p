@@ -75,6 +75,13 @@ kind of work our stylists love to do.
 <span class="pr-note">Pricing shared on consultation</span>
 </div>
 
+<div class="pr-card">
+<span class="pr-icon">🖌️</span>
+<h3>Highlights &amp; balayage</h3>
+<p>Hand-worked lightening and dimension, matched to your natural tone so it grows out softly.</p>
+<span class="pr-note">Pricing shared on consultation</span>
+</div>
+
 </div>
 </div>
 
@@ -86,6 +93,13 @@ kind of work our stylists love to do.
 <span class="pr-icon">✨</span>
 <h3>Smoothing &amp; care</h3>
 <p>Smoothing and conditioning treatments to keep your hair healthy and easy to manage.</p>
+<span class="pr-note">Pricing shared on consultation</span>
+</div>
+
+<div class="pr-card">
+<span class="pr-icon">🌿</span>
+<h3>Hair spa</h3>
+<p>Nourishing care to leave hair soft, refreshed, and looking after itself between visits.</p>
 <span class="pr-note">Pricing shared on consultation</span>
 </div>
 
