@@ -1,6 +1,6 @@
 ---
 title: About us — dingg salon, Pune
-description: Meet dingg salon, a hair salon in the heart of Pune built on personal consultations, skilled stylists, and a warm, comfortable space.
+description: Meet dingg salon, a friendly hair salon in the heart of Pune built on personal consultations, skilled stylists, and a warm, comfortable space.
 ---
 
 <style>
@@ -30,18 +30,18 @@ description: Meet dingg salon, a hair salon in the heart of Pune built on person
 
 <div class="ab-story">
 
-We are dingg salon, a hair salon in the heart of Pune. We began with a simple
-idea — that a cut or a colour should feel like time spent on you, not something
-rushed through. So every visit starts with a proper conversation about what you
-want and what will suit you.
+We are dingg salon, a friendly hair salon in the heart of Pune. We began with a
+simple idea — that a cut or a colour should feel like time spent on you, not
+something rushed through. So every visit starts with a proper conversation about
+what you want and what will suit you.
 
-Our stylists are skilled and genuinely love the craft, from everyday cuts to
+Our stylists are experienced and genuinely love the craft, from everyday cuts to
 colour, smoothing, and styling for the days that matter. We keep the salon
-modern and comfortable so you can settle in and relax while we work.
+modern and comfortable, so you can settle in and relax while we work.
 
 What makes us different is the personal part. We tailor each service to you
 rather than hand over an off-the-shelf result, and we would always rather get to
-know your hair first. We can't wait for you to meet the team in person.
+know your hair first. We can't wait to welcome you in.
 
 ## Take a look around
 
