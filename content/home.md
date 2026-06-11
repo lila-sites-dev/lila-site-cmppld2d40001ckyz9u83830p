@@ -1,30 +1,30 @@
 ---
 title: "dingg salon"
-description: "A friendly hair salon in the heart of Pune, where skilled stylists tailor every cut, colour, and treatment to suit you."
+description: "Friendly, professional hair care from an experienced team at dingg salon in the heart of Pune. Book your appointment online."
 sections:
   - type: hero
     variant: gradient-canvas
     eyebrow: "Hair salon in the heart of Pune"
     title: |
-      Hair care, tailored
-      to you in Pune
-    subtitle: "A friendly Pune salon where skilled stylists shape every cut, colour, and treatment around you."
+      Expert hair care,
+      made personal
+    subtitle: "Friendly, professional styling from an experienced team at dingg salon in Pune."
     ctaText: "book your appointment now"
     ctaHref: "/contact"
   - type: services-grid
     variant: feature-cards
     heading: "What we do"
     items:
-      - title: "Cuts & styling"
-        body: "Cuts, blow-dries, and finishing shaped to your hair and how you like to wear it."
+      - title: "Haircuts & Styling"
+        body: "Cuts and styling shaped around your hair and the look you want."
         href: "/services"
         icon: "01"
-      - title: "Colour & highlights"
-        body: "Colour, highlights, and refreshes designed around your tone and the look you want."
+      - title: "Hair Colour"
+        body: "Colour services applied with care using quality products."
         href: "/services"
         icon: "02"
-      - title: "Treatments & care"
-        body: "Nourishing treatments to help keep your hair healthy and shiny between visits."
+      - title: "Smoothing & Treatments"
+        body: "Smoothing and conditioning treatments to keep hair healthy and manageable."
         href: "/services"
         icon: "03"
       - title: "all salon & spa services pune"
@@ -33,8 +33,8 @@ sections:
         icon: "04"
   - type: cta
     variant: centered-band
-    title: "Ready to book your next visit?"
-    body: "Tell our Pune stylists the look you are after and we will help you find a time that works."
+    title: "Ready for your next great hair day?"
+    body: "Tell us what you're after and pick a time that suits you. Our stylists in Pune are ready to help."
     ctaText: "book your appointment now"
     ctaHref: "/contact"
 ---
