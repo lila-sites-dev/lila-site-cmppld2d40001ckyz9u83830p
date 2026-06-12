@@ -35,10 +35,22 @@ export async function SpecialPage({
   const page = await getSpecialPage(slug);
   if (!page) notFound();
 
+  // A `prose` section without an `html` field is the agent's signal that the
+  // page's markdown body should fill that slot — the template's CLAUDE.md
+  // documents this as "pass-through for markdown body." renderProse reads
+  // `spec.html` directly, so we substitute the page's rendered body html
+  // here before handing each section to the renderer. Without this fix any
+  // page with a bodyless `- type: prose` crashes the static export with
+  // `dangerouslySetInnerHTML must be in the form {__html: ...}` (because
+  // `__html: undefined` violates React's invariant).
+  const sectionsResolved = page.sections.map((s) =>
+    s.type === 'prose' && !s.html ? { ...s, html: page.html } : s,
+  );
+
   return (
     <>
-      {page.sections.length > 0 ? (
-        page.sections.map((spec, i) => (
+      {sectionsResolved.length > 0 ? (
+        sectionsResolved.map((spec, i) => (
           <Fragment key={i}>{renderSection(spec)}</Fragment>
         ))
       ) : (
