@@ -1,37 +1,101 @@
-import Link from 'next/link';
+import { Fragment } from 'react';
 import { getBrandFeed, businessName, businessPhone } from '@/lib/brand';
-import { listServiceSlugs, getServicePage } from '@/lib/content';
+import { listServiceSlugs, getServicePage, getHomePage } from '@/lib/content';
+import { getDesignJson, pickVariant } from '@/lib/design';
+import { renderSection } from '@/components/sections/registry';
+import type { SectionSpec, HeroSpec, ServicesGridSpec, CtaSpec } from '@/components/sections/types';
 import { LeadCaptureForm } from '@/app/components/LeadCaptureForm';
 
 export default async function HomePage() {
-  const feed = await getBrandFeed();
-  const name = businessName(feed);
+  const [feed, design, slugs, homeOverride] = await Promise.all([
+    getBrandFeed(),
+    getDesignJson(),
+    listServiceSlugs(),
+    getHomePage(),
+  ]);
+  const services = (await Promise.all(slugs.map(getServicePage))).filter(
+    (s): s is NonNullable<typeof s> => !!s,
+  );
+
+  // If the build agent has shipped a personalized `content/home.md` with a
+  // `sections:` frontmatter array, use it verbatim — that's the Lila-built
+  // home page. Otherwise fall back to the auto-composed generic default so
+  // a freshly-provisioned repo still renders something sensible day one.
+  if (homeOverride && homeOverride.sections.length > 0) {
+    return (
+      <>
+        {homeOverride.sections.map((spec, i) => (
+          <Fragment key={i}>{renderSection(spec)}</Fragment>
+        ))}
+        <section id="book" className="bg-surface-alt">
+          <div className="mx-auto max-w-3xl px-6 py-16">
+            <LeadCaptureForm source="website_form" />
+          </div>
+        </section>
+      </>
+    );
+  }
+
+  const name  = businessName(feed);
   const phone = businessPhone(feed);
-  const slugs = await listServiceSlugs();
-  const services = (await Promise.all(slugs.map(getServicePage))).filter((s): s is NonNullable<typeof s> => !!s);
+  const tagline = pickTagline(feed.llmsTxt);
+  const ctaText = phone ? `Call ${phone}` : 'Get in touch';
+  const ctaHref = phone ? `tel:${phone.replace(/\s/g, '')}` : '#book';
+
+  const heroVariant     = (pickVariant(design, 'home', 'hero')          as HeroSpec['variant'])         ?? 'split-image-right';
+  const servicesVariant = (pickVariant(design, 'home', 'services-grid') as ServicesGridSpec['variant']) ?? 'icon-cards';
+  const ctaVariant      = (pickVariant(design, 'home', 'cta')           as CtaSpec['variant'])          ?? 'centered-band';
+
+  const sections: SectionSpec[] = [
+    {
+      type: 'hero',
+      variant: heroVariant,
+      eyebrow: tagline ? undefined : 'Local · trusted',
+      title: name,
+      subtitle: tagline ?? `Welcome to ${name}.`,
+      ctaText,
+      ctaHref,
+    },
+    services.length > 0 && {
+      type: 'services-grid',
+      variant: servicesVariant,
+      heading: 'What we do',
+      items: services.map((s, i) => ({
+        title: s.title,
+        body:  s.description,
+        href:  `/services/${s.slug}`,
+        icon:  String(i + 1).padStart(2, '0'),
+      })),
+    },
+    {
+      type: 'cta',
+      variant: ctaVariant,
+      title: `Book with ${name}`,
+      body: phone ? `Call us directly or send a message below.` : 'Send a message and we’ll get back to you.',
+      ctaText,
+      ctaHref,
+    },
+  ].filter(Boolean) as SectionSpec[];
 
   return (
     <>
-      <h1>{name}</h1>
-      {phone && (
-        <p>
-          Call <a href={`tel:${phone.replace(/\s/g, '')}`}>{phone}</a> to book.
-        </p>
-      )}
-      {services.length > 0 && (
-        <>
-          <h2>Services</h2>
-          <ul className="service-list">
-            {services.map((s) => (
-              <li key={s.slug}>
-                <Link href={`/services/${s.slug}`}>{s.title}</Link>
-                {s.description && <div style={{ color: 'var(--soft)' }}>{s.description}</div>}
-              </li>
-            ))}
-          </ul>
-        </>
-      )}
-      <LeadCaptureForm source="website_form" />
+      {sections.map((spec, i) => (
+        <Fragment key={i}>{renderSection(spec)}</Fragment>
+      ))}
+      <section id="book" className="bg-surface-alt">
+        <div className="mx-auto max-w-3xl px-6 py-16">
+          <LeadCaptureForm source="website_form" />
+        </div>
+      </section>
     </>
   );
+}
+
+/** Pull the first non-heading line of llms.txt as a short tagline, if any. */
+function pickTagline(llmsTxt: string): string | undefined {
+  const line = llmsTxt
+    .split('\n')
+    .map((l) => l.trim())
+    .find((l) => l.length > 0 && !l.startsWith('#') && !l.startsWith('-'));
+  return line && line.length <= 160 ? line : undefined;
 }
