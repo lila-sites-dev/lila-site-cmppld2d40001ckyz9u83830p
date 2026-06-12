@@ -1,12 +1,13 @@
 {
-  "llmsTxt": "DINGG — salon, spa, and wellness management software.\nStreamline appointments, memberships, marketing, and reporting in one place.\n\n## Contact\n- Email: hello@dingg.app\n- Phone: +1 415 555 0100\n",
   "jsonLd": {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "DINGG",
-    "telephone": "+1 415 555 0100",
-    "applicationCategory": "BusinessApplication",
-    "operatingSystem": "Web",
-    "description": "All-in-one management software for salons, spas, and wellness studios."
-  }
+    "@type": "LocalBusiness",
+    "name": "dingg salon",
+    "telephone": "9876543210",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "pune"
+    }
+  },
+  "llmsTxt": "dingg salon — hair salon.\n\n## Contact\n- Phone: 9876543210"
 }
