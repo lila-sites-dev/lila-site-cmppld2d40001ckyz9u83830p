@@ -22,9 +22,17 @@ export default async function HomePage() {
   // home page. Otherwise fall back to the auto-composed generic default so
   // a freshly-provisioned repo still renders something sensible day one.
   if (homeOverride && homeOverride.sections.length > 0) {
+    // A `prose` section without its own `html` field means "use the page's
+    // markdown body here" (per template CLAUDE.md). renderProse reads
+    // spec.html directly, so substitute the body html before rendering —
+    // otherwise React's static export crashes with `dangerouslySetInnerHTML
+    // must be in the form {__html: ...}` because __html is undefined.
+    const sectionsResolved = homeOverride.sections.map((s) =>
+      s.type === 'prose' && !s.html ? { ...s, html: homeOverride.html } : s,
+    );
     return (
       <>
-        {homeOverride.sections.map((spec, i) => (
+        {sectionsResolved.map((spec, i) => (
           <Fragment key={i}>{renderSection(spec)}</Fragment>
         ))}
         <section id="book" className="bg-surface-alt">
