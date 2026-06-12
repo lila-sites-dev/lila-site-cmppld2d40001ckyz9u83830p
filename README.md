@@ -21,5 +21,22 @@ NEXT_PUBLIC_LILA_INBOUND_URL=http://localhost:5001/api/lila/inbound npm run dev
 ```
 
 ## Deploy
-Vercel (per-client project, custom domain). Set `NEXT_PUBLIC_LILA_INBOUND_URL` to the
-platform inbound endpoint at build time.
+Vercel (per-client project, custom domain). Set at build time:
+- `NEXT_PUBLIC_LILA_INBOUND_URL` — the platform lead-inbound endpoint (`…/api/lila/inbound`).
+- `NEXT_PUBLIC_LILA_SITE_ID` — this site's `Site.id` (so the lead form is attributed).
+
+## Loop-close: post-deploy validation
+`.github/workflows/lila-deploy-validate.yml` closes the build loop. On a successful
+**production** deploy (Vercel emits a GitHub `deployment_status`), it POSTs the changed
+service page URL(s) to the backend's `POST /api/mcp/deploy-callback`, which runs the live
+checks (reachable, SSR, JSON-LD, indexable, lead capture, grounded). If a page fails, the
+backend auto-files a `lila:build` fix issue that re-enters the build loop.
+
+Setup (once, org-wide on the `lila-sites` org, or per repo) — add Actions **secrets**:
+- `LILA_BACKEND_URL` — public backend base URL (must be reachable from GitHub-hosted
+  runners; `localhost` won't work — validate locally with a manual `curl` instead).
+- `RUNNER_MASTER_KEY` — the same value the backend uses (authes the callback).
+
+Also connect the org to Vercel so `lila-site-*` repos auto-deploy on merge. If your Vercel
+production deploys use an environment label other than `Production`, adjust the `if:` filter
+in the workflow.
