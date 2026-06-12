@@ -4,3 +4,6 @@
 *.tsbuildinfo
 next-env.d.ts
 .env*.local
+# Emitted by scripts/applyDesign.mjs at build time from brand/design.json.
+/app/theme.generated.css
+/lib/themeFonts.generated.ts
