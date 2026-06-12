@@ -1,20 +1,110 @@
-/* Minimal, swap-in brand tokens. The build agent may edit :root tokens to match
-   the client's brand kit (colors/fonts) — see CLAUDE.md. */
-:root {
-  --bg: #ffffff;
-  --ink: #14121c;
-  --soft: #5b5870;
-  --accent: #7c5cff;
-  --rule: #ece9f5;
-  --font: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+/* Tailwind v4 is CSS-first: tokens live in @theme below, sourced from the
+ * generated CSS file emitted by scripts/applyDesign.mjs (which reads
+ * brand/design.json). The build agent never edits this file — the path-allowlist
+ * in lilaBranchScan rejects diffs here. */
+
+@import "tailwindcss";
+@import "./theme.generated.css";
+
+@theme {
+  /* Color roles → Tailwind utility classes (bg-primary, text-on-primary, etc.).
+   * Each maps to a --brand-* var defined in theme.generated.css. Swapping the
+   * design.json regenerates the underlying values without touching this file. */
+  --color-primary:        var(--brand-primary);
+  --color-on-primary:     var(--brand-on-primary);
+  --color-secondary:      var(--brand-secondary);
+  --color-on-secondary:   var(--brand-on-secondary);
+  --color-accent:         var(--brand-accent);
+  --color-on-accent:      var(--brand-on-accent);
+  --color-surface:        var(--brand-surface);
+  --color-on-surface:     var(--brand-on-surface);
+  --color-surface-alt:    var(--brand-surface-alt);
+  --color-on-surface-alt: var(--brand-on-surface-alt);
+  --color-ink:            var(--brand-text);
+  --color-muted:          var(--brand-muted);
+  --color-line:           var(--brand-border);
+
+  /* Typography */
+  --font-display: var(--brand-font-display);
+  --font-sans:    var(--brand-font-body);
+
+  /* Radii */
+  --radius-card: var(--brand-radius-card);
 }
-* { box-sizing: border-box; }
-body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font); line-height: 1.6; }
-.container { max-width: 760px; margin: 0 auto; padding: 48px 24px 96px; }
-h1 { font-size: 2rem; letter-spacing: -0.02em; }
-a { color: var(--accent); }
-.lead-form { margin-top: 40px; padding: 24px; border: 1px solid var(--rule); border-radius: 14px; display: grid; gap: 10px; }
-.lead-form input, .lead-form textarea { padding: 10px 12px; border: 1px solid var(--rule); border-radius: 8px; font: inherit; }
-.lead-form button { padding: 11px 16px; border: 0; border-radius: 8px; background: var(--accent); color: #fff; font-weight: 600; cursor: pointer; }
-.service-list { list-style: none; padding: 0; }
-.service-list li { padding: 12px 0; border-top: 1px solid var(--rule); }
+
+/* Base layer — minimal page chrome; everything else lives in the section components. */
+html, body {
+  background: var(--brand-surface);
+  color: var(--brand-text);
+  font-family: var(--brand-font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Restore native list / heading semantics for the .prose-body class used by the
+ * Prose section (markdown bodies rendered via dangerouslySetInnerHTML). */
+.prose-body h1,
+.prose-body h2,
+.prose-body h3 {
+  font-family: var(--brand-font-display);
+  letter-spacing: -0.01em;
+  margin-top: 1.75em;
+  margin-bottom: 0.5em;
+  line-height: 1.2;
+}
+.prose-body h1 { font-size: 2rem; }
+.prose-body h2 { font-size: 1.5rem; }
+.prose-body h3 { font-size: 1.2rem; }
+.prose-body p { margin: 0.9em 0; line-height: 1.65; }
+.prose-body ul,
+.prose-body ol { padding-left: 1.5em; margin: 0.9em 0; }
+.prose-body li { margin: 0.35em 0; }
+.prose-body a {
+  color: var(--brand-primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.prose-body strong { font-weight: 700; }
+
+/* Lead capture form — global because it's injected into pages outside the
+ * section composer too. Section components themselves carry no .lead-form rules. */
+.lead-form {
+  margin-top: 56px;
+  padding: 28px;
+  border: 1px solid var(--brand-border);
+  border-radius: var(--brand-radius-card);
+  display: grid;
+  gap: 12px;
+  background: var(--brand-surface-alt);
+  max-width: 540px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.lead-form h3 {
+  margin: 0;
+  font-family: var(--brand-font-display);
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: var(--brand-text);
+}
+.lead-form input,
+.lead-form textarea {
+  padding: 12px 14px;
+  border: 1px solid var(--brand-border);
+  border-radius: 10px;
+  font-family: var(--brand-font-body);
+  font-size: 0.95rem;
+  background: var(--brand-surface);
+  color: var(--brand-text);
+}
+.lead-form button {
+  padding: 12px 18px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--brand-primary);
+  color: var(--brand-on-primary);
+  font-family: var(--brand-font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+.lead-form button:disabled { opacity: 0.55; cursor: default; }
