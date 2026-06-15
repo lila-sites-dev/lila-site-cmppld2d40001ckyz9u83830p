@@ -1,6 +1,6 @@
 ---
 title: Balayage & Highlights in Pune
-description: Hand-painted balayage and highlights for soft, lived-in dimension, by experienced stylists at dingg salon in Pune. Book your appointment online.
+description: Balayage and highlights in Pune — hand-painted, low-maintenance colour for soft, lived-in dimension by experienced stylists at dingg salon. Book online.
 ---
 
 Balayage is all about soft, natural-looking dimension that grows out

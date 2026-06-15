@@ -1,6 +1,6 @@
 ---
 title: Smoothing & Keratin Treatments in Pune
-description: Frizz-calming smoothing and keratin treatments for glossier, easier-to-manage hair, at dingg salon in Pune. Book your appointment online.
+description: Smoothing and keratin treatments in Pune to calm frizz and make hair glossier and easier to manage, by experienced stylists at dingg salon. Book online.
 ---
 
 If humidity and frizz make mornings a battle, a smoothing or keratin treatment

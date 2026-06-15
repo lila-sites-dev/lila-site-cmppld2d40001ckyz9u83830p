@@ -1,6 +1,6 @@
 ---
 title: Hair Spa & Treatments in Pune
-description: Nourishing hair spa and conditioning treatments to leave hair softer, calmer and healthier, at dingg salon in Pune. Book your appointment online.
+description: Hair spa and treatments in Pune — nourishing scalp and conditioning care that leaves hair softer, calmer and healthier at dingg salon. Book online.
 ---
 
 Sometimes your hair just needs a little care. Our hair spa and conditioning

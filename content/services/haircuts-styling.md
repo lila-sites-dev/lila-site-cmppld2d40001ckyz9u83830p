@@ -1,6 +1,6 @@
 ---
 title: Haircuts & Styling in Pune
-description: Precision haircuts and styling shaped around your hair and routine, from experienced stylists at dingg salon in the heart of Pune. Book online.
+description: Haircuts and styling in Pune shaped around your hair type, face shape and routine by experienced stylists at dingg salon, finished with a blow-dry. Book online.
 ---
 
 Looking for a haircut in Pune that actually suits you? At dingg salon our

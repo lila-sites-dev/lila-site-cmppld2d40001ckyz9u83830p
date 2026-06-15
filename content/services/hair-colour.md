@@ -1,6 +1,6 @@
 ---
 title: Hair Colour in Pune
-description: Full colour, root touch-ups and highlights matched to your tone using quality products, by experienced stylists at dingg salon in Pune. Book online.
+description: Hair colour in Pune — full colour, expert root touch-ups, grey coverage and highlights matched to your tone by experienced stylists at dingg salon. Book online.
 ---
 
 Whether you want a full refresh, a subtle root touch-up, or rich all-over
