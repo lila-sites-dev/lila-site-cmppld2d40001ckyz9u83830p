@@ -3,11 +3,10 @@
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "dingg salon",
-    "telephone": "9876543210",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "pune"
     }
   },
-  "llmsTxt": "dingg salon — hair salon.\n\n## Contact\n- Phone: 9876543210"
+  "llmsTxt": "dingg salon — hair salon in pune.\n\n## Contact\n- Book online or visit our contact page."
 }
